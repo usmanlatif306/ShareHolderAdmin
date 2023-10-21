@@ -16,13 +16,13 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             AdminSeeder::class,
             TierSeeder::class,
-            // UserSeeder::class,
-            // GlossarySeeder::class,
-            // CategorySeeder::class,
-            // FaqSeeder::class,
-            // TestimonialSeeder::class,
-            // LocationSeeder::class,
-            // SellingSeeder::class,
+            UserSeeder::class,
+            GlossarySeeder::class,
+            CategorySeeder::class,
+            FaqSeeder::class,
+            TestimonialSeeder::class,
+            LocationSeeder::class,
+            SellingSeeder::class,
         ]);
     }
 }
