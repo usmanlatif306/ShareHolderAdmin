@@ -39,7 +39,7 @@
                 <!--begin::Content-->
                 <div class="d-flex flex-column flex-center p-6 p-lg-10 w-100">
                     <!--begin::Logo-->
-                    <a href="{{ route('home') }}" class="mb-0 mb-lg-20">
+                    <a href="{{ route('dashboard') }}" class="mb-0 mb-lg-20">
                         <img alt="Logo" src="{{ asset('images/logo-light.png') }}" class="h-40px h-lg-50px" />
                     </a>
                     <!--end::Logo-->

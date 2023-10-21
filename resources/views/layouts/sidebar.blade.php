@@ -70,7 +70,7 @@
                         <!--User Management-->
                         <div class="menu-item">
                             <a class="menu-link {{ request()->is('users*') ? 'active' : '' }}"
-                                href="{{ route('tiers.index') }}">
+                                href="{{ route('users.index') }}">
                                 <span class="menu-icon">
                                     <i class="fas fa-fw fa-users">
                                         <span class="path1"></span>
