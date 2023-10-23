@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\FaqController;
@@ -37,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Property Management Routes
     Route::resource('countries', CountryController::class)->except(['create', 'edit']);
+    Route::resource('amenities', AmenityController::class);
 
     // Investment Plans / Tiers
     Route::resource('tiers', TierController::class);

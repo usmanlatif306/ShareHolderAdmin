@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LocationRequest extends FormRequest
+class AmenityRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,6 @@ class LocationRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'image' => [$this->method() === 'PUT' ? 'nullable' : 'required', 'image', 'mimes:png,jpg,jpeg,svg,webp'],
-            'show' => ['required', 'in:0,1'],
         ];
     }
 }

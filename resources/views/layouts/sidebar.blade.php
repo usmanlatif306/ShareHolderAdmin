@@ -83,6 +83,20 @@
                             </a>
                         </div>
 
+                        <!--Amenities-->
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('amenities*') ? 'active' : '' }}"
+                                href="{{ route('amenities.index') }}">
+                                <span class="menu-icon">
+                                    <i class="fas fa-fw fa-stroopwafel">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                                <span class="menu-title">{{ __('Amenities') }}</span>
+                            </a>
+                        </div>
+
                     </div>
 
 

@@ -25,7 +25,7 @@ class TestimonialRequest extends FormRequest
             'name' => ['required', 'string'],
             'feedback' => ['required', 'string'],
             'stars' => ['required', 'integer'],
-            'image' => [$this->method() === 'PUT' ? 'nullable' : 'required', 'image', 'mimes:png,jpg,jpeg'],
+            'image' => [$this->method() === 'PUT' ? 'nullable' : 'required', 'image', 'mimes:png,jpg,jpeg,svg,webp'],
             'feedback_date' => ['required', 'date'],
             'show' => ['required', 'in:0,1'],
         ];

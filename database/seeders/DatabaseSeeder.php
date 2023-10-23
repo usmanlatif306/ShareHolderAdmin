@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             LocationSeeder::class,
             SellingSeeder::class,
+            CountrySeeder::class,
+            CitySeeder::class,
+            AmenitySeeder::class,
         ]);
     }
 }
