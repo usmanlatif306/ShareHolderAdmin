@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\HomeController;
@@ -33,6 +34,9 @@ Auth::routes();
 // Auth Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+    // Property Management Routes
+    Route::resource('countries', CountryController::class)->except(['create', 'edit']);
 
     // Investment Plans / Tiers
     Route::resource('tiers', TierController::class);

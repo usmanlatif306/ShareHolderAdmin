@@ -47,27 +47,52 @@
                         </a>
                     </div>
 
-                    <!--Investment Plans / Tiers-->
-                    <div class="menu-item">
-                        <a class="menu-link {{ request()->is('tiers*') ? 'active' : '' }}"
-                            href="{{ route('tiers.index') }}">
-                            <span class="menu-icon">
-                                <i class="fas fa-fw fa-warehouse">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </span>
-                            <span class="menu-title">{{ __('Investment Plans') }}</span>
-                        </a>
+                    <!--Property Management-->
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                        class="menu-item menu-lg-down-accordion me-0 me-lg-2">
+                        <span class="menu-link">
+                            <span class="menu-title">{{ __('Property Management') }}</span>
+                            <span class="menu-arrow d-lg-none"></span>
+                        </span>
+
+                        <!--Investment Plans / Tiers-->
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('tiers*') ? 'active' : '' }}"
+                                href="{{ route('tiers.index') }}">
+                                <span class="menu-icon">
+                                    <i class="fas fa-fw fa-warehouse">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                                <span class="menu-title">{{ __('Investment Plans') }}</span>
+                            </a>
+                        </div>
+
+                        <!--Countries-->
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('countries*') ? 'active' : '' }}"
+                                href="{{ route('countries.index') }}">
+                                <span class="menu-icon">
+                                    <i class="fas fa-fw fa-globe">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                                <span class="menu-title">{{ __('Countries') }}</span>
+                            </a>
+                        </div>
+
                     </div>
 
+
+                    <!--User Management-->
                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                         class="menu-item menu-lg-down-accordion me-0 me-lg-2">
                         <span class="menu-link">
                             <span class="menu-title">{{ __('User Management') }}</span>
                             <span class="menu-arrow d-lg-none"></span>
                         </span>
-                        <!--User Management-->
                         <div class="menu-item">
                             <a class="menu-link {{ request()->is('users*') ? 'active' : '' }}"
                                 href="{{ route('users.index') }}">

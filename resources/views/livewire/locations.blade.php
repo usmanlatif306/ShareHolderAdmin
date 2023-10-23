@@ -37,7 +37,7 @@
                                 <div class="symbol symbol-circle symbol-30px cursor-pointer"
                                     wire:click="showLocation({{ $item->id }})">
                                     <span class="symbol-label fs-3 bg-light-success text-success"
-                                        title="{{ __('Show Neighbourhood') }}">
+                                        title="{{ __('Show Location') }}">
                                         <i class="fas fa-eye"></i>
                                     </span>
                                 </div>
@@ -45,21 +45,21 @@
                                 <div class="symbol symbol-circle symbol-30px cursor-pointer">
                                     <a href="{{ route('locations.edit', $item) }}"
                                         class="symbol-label fs-3 bg-light-success text-success"
-                                        title="{{ __('Edit Neighbourhood') }}">
+                                        title="{{ __('Edit Location') }}">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </div>
 
                                 <div class="symbol symbol-circle symbol-30px cursor-pointer"
-                                    onclick="deleteRecord('neighbourhood','{{ $item->id }}')">
+                                    onclick="deleteRecord('location','{{ $item->id }}')">
                                     <span class="symbol-label fs-3 bg-light-success text-success"
-                                        title="{{ __('Delete Neighbourhood') }}">
+                                        title="{{ __('Delete Location') }}">
                                         <i class="fas fa-times"></i>
                                     </span>
                                 </div>
                             </div>
-                            <form id="neighbourhood-{{ $item->id }}"
-                                action="{{ route('locations.destroy', $item) }}" method="POST">
+                            <form id="location-{{ $item->id }}" action="{{ route('locations.destroy', $item) }}"
+                                method="POST">
                                 @csrf
                                 @method('delete')
                             </form>
