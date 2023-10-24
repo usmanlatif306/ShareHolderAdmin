@@ -69,8 +69,12 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        $faq->delete();
+        try {
+            $faq->delete();
 
-        return to_route('faqs.index')->with('success', __('FAQ Deleted Successfully.'));
+            return to_route('faqs.index')->with('success', __('FAQ Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

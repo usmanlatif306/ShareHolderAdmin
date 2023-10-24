@@ -65,8 +65,12 @@ class GlossaryController extends Controller
      */
     public function destroy(Glossary $glossary)
     {
-        $glossary->delete();
+        try {
+            $glossary->delete();
 
-        return to_route('glossaries.index')->with('success', __('Glossary Deleted Successfully.'));
+            return to_route('glossaries.index')->with('success', __('Glossary Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

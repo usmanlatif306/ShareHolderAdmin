@@ -77,9 +77,13 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
-        $this->deleteFile($testimonial->image);
-        $testimonial->delete();
+        try {
+            $this->deleteFile($testimonial->image);
+            $testimonial->delete();
 
-        return back()->with('success', __('Testimonial Deleted Successfully.'));
+            return back()->with('success', __('Testimonial Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

@@ -78,9 +78,13 @@ class AmenityController extends Controller
      */
     public function destroy(Amenity $amenity)
     {
-        $this->deleteFile($amenity->image);
-        $amenity->delete();
+        try {
+            $this->deleteFile($amenity->image);
+            $amenity->delete();
 
-        return to_route('amenities.index')->with('success', __('Amenity Deleted Successfully.'));
+            return to_route('amenities.index')->with('success', __('Amenity Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

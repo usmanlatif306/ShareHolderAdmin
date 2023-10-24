@@ -64,9 +64,13 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
-        $country->cities()->delete();
-        $country->delete();
+        try {
+            $country->cities()->delete();
+            $country->delete();
 
-        return back()->with('success', __('Country Deleted Successfully.'));
+            return back()->with('success', __('Country Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

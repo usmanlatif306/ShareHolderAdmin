@@ -77,6 +77,12 @@ class UserControler extends Controller
      */
     public function destroy(User $user)
     {
-        dd($user);
+        try {
+            $user->delete();
+
+            return back()->with('success', __('User Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

@@ -60,8 +60,12 @@ class SellingController extends Controller
      */
     public function destroy(Selling $selling)
     {
-        $selling->delete();
+        try {
+            $selling->delete();
 
-        return back()->with('success', __('Selling Request Deleted Successfully.'));
+            return back()->with('success', __('Selling Request Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

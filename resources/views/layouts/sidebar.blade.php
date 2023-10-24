@@ -55,6 +55,20 @@
                             <span class="menu-arrow d-lg-none"></span>
                         </span>
 
+                        {{-- Proprties --}}
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('properties*') ? 'active' : '' }}"
+                                href="{{ route('properties.index') }}">
+                                <span class="menu-icon">
+                                    <i class="fas fa-fw fa-home">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                                <span class="menu-title">{{ __('Properties') }}</span>
+                            </a>
+                        </div>
+
                         <!--Investment Plans / Tiers-->
                         <div class="menu-item">
                             <a class="menu-link {{ request()->is('tiers*') ? 'active' : '' }}"
@@ -94,6 +108,20 @@
                                     </i>
                                 </span>
                                 <span class="menu-title">{{ __('Amenities') }}</span>
+                            </a>
+                        </div>
+
+                        {{-- Proprty Categories --}}
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('property/categories*') ? 'active' : '' }}"
+                                href="{{ route('properties.categories.index') }}">
+                                <span class="menu-icon">
+                                    <i class="fas fa-fw fa-pager">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                                <span class="menu-title">{{ __('Categories') }}</span>
                             </a>
                         </div>
 

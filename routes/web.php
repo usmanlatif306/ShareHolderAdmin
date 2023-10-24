@@ -10,6 +10,8 @@ use App\Http\Controllers\KycController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PropertyCategoryController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\SellingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TierController;
@@ -39,6 +41,11 @@ Route::middleware(['auth'])->group(function () {
     // Property Management Routes
     Route::resource('countries', CountryController::class)->except(['create', 'edit']);
     Route::resource('amenities', AmenityController::class);
+    Route::group(['as' => 'properties.', 'prefix' => 'property'], function () {
+        Route::resource('categories', PropertyCategoryController::class);
+    });
+    Route::resource('properties', PropertyController::class);
+
 
     // Investment Plans / Tiers
     Route::resource('tiers', TierController::class);

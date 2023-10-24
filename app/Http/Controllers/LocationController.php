@@ -78,9 +78,13 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-        $this->deleteFile($location->image);
-        $location->delete();
+        try {
+            $this->deleteFile($location->image);
+            $location->delete();
 
-        return back()->with('success', __('Location Deleted Successfully.'));
+            return back()->with('success', __('Location Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

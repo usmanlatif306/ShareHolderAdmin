@@ -1,5 +1,8 @@
 <?php
 
+use App\Enums\PropertyStatus;
+use App\Models\Amenity;
+
 if (!function_exists('name_alphabetic')) {
     function name_alphabetic($name)
     {
@@ -34,5 +37,30 @@ if (!function_exists('badge_colour')) {
         } else {
             return 'badge-primary';
         }
+    }
+}
+
+if (!function_exists('property_statuses')) {
+    function property_statuses()
+    {
+        return array_column(PropertyStatus::cases(), 'value');
+    }
+}
+
+if (!function_exists('convert_name')) {
+    function convert_name($value)
+    {
+        if (str_contains($value, '-')) {
+            return ucwords(str_replace('-', ' ', $value));
+        } else {
+            return ucwords(str_replace('_', ' ', $value));
+        }
+    }
+}
+
+if (!function_exists('amenity')) {
+    function amenity($id)
+    {
+        return Amenity::find($id);
     }
 }

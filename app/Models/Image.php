@@ -15,7 +15,7 @@ class Image extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'imageable_id', 'imageable_type'];
+    protected $fillable = ['filename', 'imageable_id', 'imageable_type'];
 
     /**
      * Get the parent imageable model (user or post).

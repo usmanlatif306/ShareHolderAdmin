@@ -63,8 +63,12 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        $message->delete();
+        try {
+            $message->delete();
 
-        return back()->with('success', __('Message Deleted Successfully.'));
+            return back()->with('success', __('Message Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

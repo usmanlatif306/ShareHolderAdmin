@@ -67,6 +67,12 @@ class TierController extends Controller
      */
     public function destroy(Tier $tier)
     {
-        //
+        try {
+            $tier->delete();
+
+            return back()->with('success', __('Investment Plan Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }

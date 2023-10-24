@@ -67,8 +67,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
+        try {
+            $category->delete();
 
-        return to_route('categories.index')->with('success', __('Category Deleted Successfully.'));
+            return to_route('categories.index')->with('success', __('Category Deleted Successfully.'));
+        } catch (\Exception $ex) {
+            return back()->with('error', $ex->getMessage());
+        }
     }
 }
