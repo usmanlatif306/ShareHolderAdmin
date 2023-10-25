@@ -52,9 +52,9 @@ class PropertyForm extends Form
     public $location = '';
     #[Rule('required|string')]
     public $location_note = '';
-    #[Rule('required|string|max:255')]
+    #[Rule('required|numeric')]
     public $latitude = '';
-    #[Rule('required|string|max:255')]
+    #[Rule('required|numeric')]
     public $longitude = '';
     #[Rule('required')]
     public $status = '';

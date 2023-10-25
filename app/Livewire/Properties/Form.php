@@ -77,7 +77,7 @@ class Form extends Component
 
     public function render()
     {
-        return view('livewire.properties.create', [
+        return view('livewire.properties.form', [
             'countries' => Country::select(['id', 'name'])->orderBy('name')->get(),
             'categories' => PropertyCategory::orderBy('name')->get(),
             'amenities' => Amenity::whereNotIn('id', $this->selected_amenities)->get(),
@@ -197,7 +197,21 @@ class Form extends Component
         }
     }
 
+    public function fetchCoordinates()
+    {
+        $country_name = Country::find($this->form->country_id)?->name;
+        $city_name = City::find($this->form->city_id)?->name;
 
+        $address = $this->form->location . ',' . $city_name . ',' . $country_name;
+        $coordinates = findAddressCoordinates($address);
+        if (isset($coordinates['geometry'])) {
+            $this->form->latitude = $coordinates['geometry']['location']['lat'];
+            $this->form->longitude = $coordinates['geometry']['location']['lng'];
+            session()->flash('location_success', __('Coordinates Fetched Successfully!'));
+        } else {
+            session()->flash('location_error', $coordinates);
+        }
+    }
     public function saveProperty()
     {
         $this->validate();

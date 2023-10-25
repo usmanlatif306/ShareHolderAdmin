@@ -64,3 +64,14 @@ if (!function_exists('amenity')) {
         return Amenity::find($id);
     }
 }
+
+if (!function_exists('currency_format')) {
+    function currency_format($value, $is_decimal = false)
+    {
+        if ($is_decimal) {
+            return number_format($value, 3);
+        } else {
+            return str_replace('.000', '', number_format($value, 3));
+        }
+    }
+}

@@ -24,4 +24,9 @@ class Image extends Model
     {
         return $this->morphTo();
     }
+
+    public function getFileAttribute()
+    {
+        return asset($this->filename);
+    }
 }

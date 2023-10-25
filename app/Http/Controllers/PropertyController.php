@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PropertyRequest;
 use App\Models\Property;
+use App\Traits\FileUpload;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
+    use FileUpload;
     /**
      * Display a listing of the resource.
      */
@@ -27,7 +28,7 @@ class PropertyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PropertyRequest $request)
+    public function store(Request $request)
     {
         dd($request->validated());
 
@@ -39,6 +40,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+        $property->load(['country', 'city', 'amenities', 'documents']);
         return view('properties.show', compact('property'));
     }
 
@@ -48,13 +50,14 @@ class PropertyController extends Controller
     public function edit(Property $property)
     {
         $property->load(['images', 'videos', 'amenities', 'documents']);
+
         return view('properties.edit', compact('property'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(PropertyRequest $request, Property $property)
+    public function update(Request $request, Property $property)
     {
         dd($request->validated());
 
@@ -67,6 +70,27 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
         try {
+            // deleteing all images of property
+            foreach ($property->images as $image) {
+                $this->deleteFile($image->filename);
+                $image->delete();
+            }
+
+            // deleteing all videos of property
+            foreach ($property->videos as $video) {
+                $this->deleteFile($video->filename);
+                $video->delete();
+            }
+
+            // deleteing all documents of property
+            foreach ($property->documents as $document) {
+                $this->deleteFile($document->filename);
+                $document->delete();
+            }
+
+            // deleteing all amenities of property
+            $property->amenities()->delete();
+
             $property->delete();
             return back()->with('success', __('Property Deletd Successfully!'));
         } catch (\Exception $ex) {

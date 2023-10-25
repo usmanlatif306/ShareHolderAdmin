@@ -28,7 +28,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $property->name }}</td>
-                        <td>${{ $property->price }}</td>
+                        <td>${{ currency_format($property->price) }}</td>
                         <td>{{ $property->country->name }}</td>
                         <td>{{ $property->category?->name ?? '-' }}</td>
                         <td class="">

@@ -32,5 +32,6 @@ return [
     ],
 
     'website_url' => env('WEBSITE_URL'),
+    'google_map_key' => env('GOOGLE_MAP_KEY'),
 
 ];

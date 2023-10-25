@@ -348,11 +348,27 @@
     </div>
 
     {{-- Location --}}
+    @if (Session::has('location_success'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>{{ __('Success') }} !</strong> {{ session('location_success') }}
+        </div>
+    @endif
+    @if (Session::has('location_error'))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>{{ __('Error') }} !</strong> {{ session('location_error') }}
+        </div>
+    @endif
+
     <div class="form-group mb-6">
         <label class="required fw-semibold fs-6 mb-2">{{ __('Location') }}</label>
         <input type="text" wire:model="form.location"
             class="form-control form-control-solid @error('form.location') is-invalid @enderror" id="question"
             placeholder="{{ __('Location') }}" name="location">
+        <div class="d-flex justify-content-end mt-1 cursor-pointer" wire:click="fetchCoordinates">
+            <span class="fs-14 text-primary">{{ __('Fetch Latitude and Longitude based on address') }}</span>
+        </div>
         @error('form.location')
             <span class="text-danger">{{ $message }}</span>
         @enderror
@@ -509,7 +525,8 @@
     <!--begin::Actions-->
     <div class="text-center py-10">
         <button type="submit" class="btn btn-primary">
-            <span class="indicator-label">{{ $form->property ? __('Update Property') : __('Create Property') }}</span>
+            <span
+                class="indicator-label">{{ $form->property ? __('Update Property') : __('Create Property') }}</span>
         </button>
     </div>
     <!--end::Actions-->

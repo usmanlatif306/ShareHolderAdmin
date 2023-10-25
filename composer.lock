@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c2024b8daf0095d1bbbf5f091f9421d",
+    "content-hash": "d697ac153301cf6028f9419c3d6f4dc1",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -3389,6 +3389,90 @@
                 }
             ],
             "time": "2023-04-15T23:01:58+00:00"
+        },
+        {
+            "name": "salmanzafar/laravel-geocode",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/salmanzafar949/laravel-geocode.git",
+                "reference": "b922bb1588948cc305817169ee959f41891a3240"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/salmanzafar949/laravel-geocode/zipball/b922bb1588948cc305817169ee959f41891a3240",
+                "reference": "b922bb1588948cc305817169ee959f41891a3240",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=8.0.0",
+                "php": ">=7.3.0"
+            },
+            "require-dev": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Salman\\GeoCode\\GeoCodeServiceProvider"
+                    ],
+                    "aliases": {
+                        "GeoCode": "Salman\\GeoCode\\Facades\\GeoCode"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Helper/Helpers.php"
+                ],
+                "psr-4": {
+                    "Salman\\GeoCode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Salman Zafar",
+                    "email": "salmanzafar949@gmail.com"
+                }
+            ],
+            "description": "A Laravel Package to find Lat and Long of a given Specific Address",
+            "keywords": [
+                "geocode-laravel",
+                "google maps laravel geocode",
+                "google maps laravel geocoder",
+                "laravel",
+                "laravel-geocode",
+                "laravel5",
+                "laravel6",
+                "laravel7",
+                "laravel8",
+                "php",
+                "php 7.0",
+                "php 7.1",
+                "php 7.2",
+                "php 7.3",
+                "php 7.4"
+            ],
+            "support": {
+                "issues": "https://github.com/salmanzafar949/laravel-geocode/issues",
+                "source": "https://github.com/salmanzafar949/laravel-geocode/tree/v1.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/salmanzafar949",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/salmanzafar949",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-10-07T11:43:01+00:00"
         },
         {
             "name": "spatie/laravel-sluggable",

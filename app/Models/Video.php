@@ -25,4 +25,9 @@ class Video extends Model
     {
         return $this->belongsTo(Property::class);
     }
+
+    public function getFileAttribute()
+    {
+        return asset($this->filename);
+    }
 }

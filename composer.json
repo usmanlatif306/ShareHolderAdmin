@@ -16,6 +16,7 @@
         "laravel/ui": "^4.2",
         "livewire/livewire": "^3.0",
         "outhebox/blade-flags": "^1.2",
+        "salmanzafar/laravel-geocode": "^1.0",
         "spatie/laravel-sluggable": "^3.5"
     },
     "require-dev": {
