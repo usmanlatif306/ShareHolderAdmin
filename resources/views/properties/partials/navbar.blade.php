@@ -49,7 +49,9 @@
                                     <span class="path1"></span>
                                     <span class="path2"></span>
                                 </i> --}}
-                                <div class="fs-4 fw-bold" data-kt-countup="true" data-kt-countup-value="0">0
+                                <div class="fs-4 fw-bold" data-kt-countup="true"
+                                    data-kt-countup-value="{{ $property->investments?->unique('user_id')?->count() }}">
+                                    0
                                 </div>
                             </div>
 
@@ -64,7 +66,8 @@
                                     <span class="path1"></span>
                                     <span class="path2"></span>
                                 </i> --}}
-                                <div class="fs-4 fw-bold" data-kt-countup="true" data-kt-countup-value="0"
+                                <div class="fs-4 fw-bold" data-kt-countup="true"
+                                    data-kt-countup-value="{{ currency_format($property->investments_sum_amount) }}"
                                     data-kt-countup-prefix="$">0</div>
                             </div>
                             <div class="fw-semibold fs-6 text-gray-400">Totol Investment</div>

@@ -2,7 +2,7 @@
 <div class="d-flex flex-wrap flex-stack pb-7">
     <!--begin::Title-->
     <div class="d-flex flex-wrap align-items-center my-1">
-        <h3 class="fw-bold me-5 my-1">Users (38)</h3>
+        <h3 class="fw-bold me-5 my-1">Investors ({{ $property->investments?->unique('user_id')?->count() }})</h3>
         <!--begin::Search-->
         <div class="d-flex align-items-center position-relative my-1">
             <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-3">

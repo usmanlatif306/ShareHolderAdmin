@@ -75,3 +75,10 @@ if (!function_exists('currency_format')) {
         }
     }
 }
+
+if (!function_exists('funded')) {
+    function funded($invest, $price)
+    {
+        return ceil(($invest / $price) * 100);
+    }
+}

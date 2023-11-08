@@ -25,7 +25,8 @@
             @if (request()->tab === 'overview' || !request()->tab)
                 @include('properties.partials.overview')
             @elseif (request()->tab === 'investors')
-                @include('properties.partials.investors')
+                {{-- @include('properties.partials.investors') --}}
+                @livewire('properties.investors', ['property' => $property])
             @elseif (request()->tab === 'files')
                 @include('properties.partials.files')
             @elseif (request()->tab === 'activity')

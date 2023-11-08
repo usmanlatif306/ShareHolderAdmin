@@ -40,7 +40,9 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        $property->load(['country', 'city', 'amenities', 'documents']);
+        $property->load(['country', 'city', 'amenities', 'documents', 'investments.user']);
+        $property->loadSum('investments', 'amount');
+
         return view('properties.show', compact('property'));
     }
 

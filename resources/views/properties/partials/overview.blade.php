@@ -86,19 +86,24 @@
             <div class="card-body py-3">
                 <h1 class="text-success fw-bolder text-center mb-3">${{ currency_format($property->price) }}</h1>
 
+                @php
+                    $funded = funded($property->investments_sum_amount, $property->price);
+                @endphp
                 <div class="d-flex flex-column">
                     <div class="h-8px bg-light rounded mb-3">
-                        <div class="bg-success rounded h-8px" role="progressbar" style="width: 0%;" aria-valuenow="0"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="bg-success rounded h-8px" role="progressbar" style="width: {{ $funded }}%;"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="d-flex justify-content-between w-100 fs-4 fw-bold mb-3">
-                        <span>0% funded</span>
-                        <span>${{ currency_format($property->price) }} available</span>
+                        <span>{{ $funded }}% funded</span>
+                        <span>${{ currency_format($property->price - $property->investments_sum_amount) }}
+                            available</span>
                     </div>
 
                     <div class="d-flex justify-content-between w-100 fs-4 fw-bold mb-3">
                         <p>
-                            <span class="text-success">0 </span>investors
+                            <span class="text-success">{{ $property->investments?->unique('user_id')?->count() }}
+                            </span>investors
                         </p>
                         {{-- @if (now()->diffInDays($property->closing_date) < 50) --}}
                         <span class="text-danger">{{ now()->diffInDays($property->closing_date) }} days left</span>

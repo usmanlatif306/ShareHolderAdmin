@@ -67,6 +67,14 @@ class Property extends Model
     }
 
     /**
+     * Get all investments in property.
+     */
+    public function investments(): HasMany
+    {
+        return $this->hasMany(Investment::class)->latest();
+    }
+
+    /**
      * Get all of the images.
      */
     public function images(): MorphMany
