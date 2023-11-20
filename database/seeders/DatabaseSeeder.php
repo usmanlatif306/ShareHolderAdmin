@@ -15,17 +15,17 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             AdminSeeder::class,
-            TierSeeder::class,
-            UserSeeder::class,
-            GlossarySeeder::class,
-            CategorySeeder::class,
-            FaqSeeder::class,
-            TestimonialSeeder::class,
-            LocationSeeder::class,
-            SellingSeeder::class,
-            CountrySeeder::class,
-            CitySeeder::class,
-            AmenitySeeder::class,
+            // TierSeeder::class,
+            // UserSeeder::class,
+            // GlossarySeeder::class,
+            // CategorySeeder::class,
+            // FaqSeeder::class,
+            // TestimonialSeeder::class,
+            // LocationSeeder::class,
+            // SellingSeeder::class,
+            // CountrySeeder::class,
+            // CitySeeder::class,
+            // AmenitySeeder::class,
         ]);
     }
 }

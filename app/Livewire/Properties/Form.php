@@ -33,10 +33,12 @@ class Form extends Component
     public $files = [];
     public $images = [];
     public $videos = [];
+    public $is_property_exist = false;
 
     public function mount($property)
     {
         if ($property) {
+            $this->is_property_exist = true;
             // dd($property->images);
             $this->form->setProperty($property);
             $this->country_id = $property->country_id;
@@ -216,7 +218,7 @@ class Form extends Component
     {
         $this->validate();
 
-        if ($this->form->property) {
+        if ($this->is_property_exist) {
             $this->form->property->update($this->form->all());
             $proprty = $this->form->property;
         } else {
@@ -251,7 +253,7 @@ class Form extends Component
             ]);
         }
 
-        if ($this->form->property) {
+        if ($this->is_property_exist) {
             session()->flash('success', __('Property Updated Successfully.'));
         } else {
             session()->flash('success', __('New Property Created Successfully.'));

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Macro\QueryMacros;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Query\Builder;
@@ -27,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
         Builder::macro('orWhereLike', function ($column, $search) {
             return $this->orWhere($column, 'LIKE', "%{$search}%");
         });
+
+        Builder::mixin(new QueryMacros);
 
         Paginator::useBootstrapFive();
     }

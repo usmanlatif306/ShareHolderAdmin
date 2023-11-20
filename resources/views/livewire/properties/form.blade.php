@@ -526,7 +526,7 @@
     <div class="text-center py-10">
         <button type="submit" class="btn btn-primary">
             <span
-                class="indicator-label">{{ $form->property ? __('Update Property') : __('Create Property') }}</span>
+                class="indicator-label">{{ $is_property_exist ? __('Update Property') : __('Create Property') }}</span>
         </button>
     </div>
     <!--end::Actions-->
